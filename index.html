@@ -2,85 +2,191 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOGO Pricing UI</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+  <title>Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    /* Base Styling */
+    body {
+      font-family: 'Great Vibes', cursive, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black; /* All text in black */
+      background-color: #f2f2f2; /* Set a light gray background */
+    }
+
+    /* Patrika Container */
+    .patrika {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8);
+      opacity: 0;
+      animation: fadeInScale 3s ease-out forwards;
+    }
+
+    h1, h2, p {
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Light black shadow for better visibility */
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: black; /* Black text color */
+      margin-bottom: 1rem;
+      animation: textFadeIn 2s ease-in-out forwards;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: black; /* Black text color */
+      animation: textFadeIn 2s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: black; /* Black text color */
+      animation: textFadeIn 2s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+
+    /* Text Animations */
+    @keyframes fadeInScale {
+      from {
+        transform: translateY(50px) scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes textFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Decorative Floating Elements */
+    .decorative {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .decorative:nth-child(1) {
+      top: 10%;
+      left: 15%;
+      animation-delay: 1s;
+    }
+
+    .decorative:nth-child(2) {
+      top: 50%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .decorative:nth-child(3) {
+      bottom: 20%;
+      left: 50%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Map Container */
+    .map-container {
+      margin-top: 20px;
+      display: none; /* Hide map initially */
+      animation: fadeInScale 3s ease-out forwards;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    }
+
+    /* Button Styling */
+    .view-map-btn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #ff6f61;
+      color: white;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-map-btn:hover {
+      background-color: #d65a50;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>YAY! It's BOGO</h1>
+  <!-- Decorative Floating Elements -->
+  <div class="decorative"></div>
+  <div class="decorative"></div>
+  <div class="decorative"></div>
 
-    <!-- Pricing Option Template -->
-    <div class="option" id="option1">
-      <input type="radio" name="units" id="unit1" checked>
-      <label for="unit1">
-        <div class="details">
-          <span class="unit-title">1 Unit <span class="discount">10% Off</span></span>
-          <span class="price">$10.00 USD <span class="original-price">$24.00 USD</span></span>
-        </div>
-      </label>
+  <!-- Wedding Invitation Content -->
+  <div class="patrika">
+    <h1>You're Invited!</h1>
+    <h2>Pradnya & Omkar</h2>
+    <p>We are thrilled to invite you to join us on our special day.</p>
+    <p>Date: 3rd December 2024</p>
+    <p>Time: 12:43 PM</p>
+    <p>Venue: Siddnath Multipurpose Hall, Yashwantnagar, Kavathe Mahankal, Sangli</p>
+
+    <!-- Map Link: Clickable to redirect to Google Maps -->
+    <div class="map-container" id="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3815.4334625549327!2d74.85081707389627!3d17.002395413784313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc137112c3beba5%3A0x31482dda869897aa!2sSiddhanath%20Multipurpose%20Hall!5e0!3m2!1sen!2sin!4v1733006786461!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
 
-    <div class="option most-popular" id="option2">
-      <input type="radio" name="units" id="unit2">
-      <label for="unit2">
-        <div class="most-popular-tag">MOST POPULAR</div>
-        <div class="details">
-          <span class="unit-title">2 Unit <span class="discount">20% Off</span></span>
-          <span class="price">$18.00 USD <span class="original-price">$24.00 USD</span></span>
-        </div>
-        <div class="selectors">
-          <div class="selector">
-            <label for="size1">Size</label>
-            <select id="size1">
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-            </select>
-            <label for="color1">Colour</label>
-            <select id="color1">
-              <option>Black</option>
-              <option>Red</option>
-              <option>Blue</option>
-            </select>
-          </div>
-          <div class="selector">
-            <label for="size2">Size</label>
-            <select id="size2">
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-            </select>
-            <label for="color2">Colour</label>
-            <select id="color2">
-              <option>Black</option>
-              <option>Red</option>
-              <option>Blue</option>
-            </select>
-          </div>
-        </div>
-      </label>
-    </div>
-
-    <div class="option" id="option3">
-      <input type="radio" name="units" id="unit3">
-      <label for="unit3">
-        <div class="details">
-          <span class="unit-title">3 Unit <span class="discount">30% Off</span></span>
-          <span class="price">$24.00 USD <span class="original-price">$24.00 USD</span></span>
-        </div>
-      </label>
-    </div>
-
-    <div class="total">
-      <span>Free Delivery</span>
-      <span>Total: <span id="total-price">$10.00 USD</span></span>
-    </div>
-
-    <button class="add-to-cart">Add to Cart</button>
+    <!-- View Larger Map Button with JavaScript -->
+    <button class="view-map-btn" onclick="showMap()">View Larger Map</button>
   </div>
 
-  <script src="script.js"></script> <!-- Link to the external JavaScript file -->
+  <script>
+    // Function to show the map when the button is clicked
+    function showMap() {
+      document.getElementById('map-container').style.display = 'block';  // Show map
+    }
+  </script>
 </body>
 </html>
